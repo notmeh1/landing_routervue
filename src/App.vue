@@ -1,32 +1,54 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-container fluid>
+        <v-col>
+          <Navbar />
+        </v-col>
+      <v-row>
+        <v-col>
+          <!--La transicion cuesta notarla ya que dura solo 0.1s
+          y se puede confundir con el fade de las v-img-->
+          <transition name="fade">
+          <router-view />
+          </transition>
+        </v-col>
+      </v-row>
+      <v-col>
+        <Footer/>
+      </v-col>
+    </v-container>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import Navbar from "./components/navbar.vue";
+import Footer from "./components/footer.vue";
+
+export default {
+  name: "App",
+
+  components: {
+    Navbar,
+    Footer,
+  },
+  data: () => ({
+    //
+  }),
+};
+</script>
+
+<style>
+.bg-hero {
+  opacity: 0.5;
+  height: 70%;
 }
+</style>
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .1s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0%;
 }
 </style>
