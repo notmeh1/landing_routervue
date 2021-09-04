@@ -1,4 +1,6 @@
-# router_1
+# Landing Router
+Esta version usa Vuetify (este es mi primer intento con este framework asi que tiene varios detalles, pero igual funciona bien.)
+Aqui esta la version original sin Vuetify tambien : https://github.com/notmeh1/landing_routervue_og
 
 ## Project setup
 ```
@@ -9,16 +11,3 @@ yarn install
 ```
 yarn serve
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
